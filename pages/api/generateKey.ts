@@ -1,5 +1,5 @@
-// pages/api/generateKey.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
+import crypto from 'crypto';  // Thay vì require, sử dụng import
 
 const getDomainHash = (domain: string): string => {
     const domainParts = domain.split('.').reverse();
@@ -8,14 +8,14 @@ const getDomainHash = (domain: string): string => {
     }
     if (domainParts[1]) {
         const domainHash = domainParts[1];
-        return require('crypto').createHash('md5').update(require('crypto').createHash('md5').update(domainHash + '780918').digest('hex')).digest('hex');
+        return crypto.createHash('md5').update(crypto.createHash('md5').update(domainHash + '780918').digest('hex')).digest('hex');
     }
     return '';
 };
 
 const generateKey = (domain: string, version: string): string => {
     const domainHash = getDomainHash(domain);
-    return require('crypto').createHash('md5').update(domainHash + version).digest('hex');
+    return crypto.createHash('md5').update(domainHash + version).digest('hex');
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
