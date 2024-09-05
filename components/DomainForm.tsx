@@ -22,10 +22,10 @@ const DomainForm: React.FC = () => {
 
     return (
         <div className="container mt-5">
-            <h1 className="mb-4">Nhập Domain và Chọn Phiên bản để Tạo Key</h1>
+            <h1 className="mb-4">Domain</h1>
             <form onSubmit={handleSubmit} className="form-horizontal">
                 <div className="mb-3">
-                    <label htmlFor="domain" className="form-label">Tên miền:</label>
+                    <label htmlFor="domain" className="form-label">Domain:</label>
                     <input
                         type="text"
                         id="domain"
@@ -37,7 +37,7 @@ const DomainForm: React.FC = () => {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="version" className="form-label">Chọn phiên bản:</label>
+                    <label htmlFor="version" className="form-label">Version:</label>
                     <select
                         id="version"
                         name="version"
@@ -52,7 +52,7 @@ const DomainForm: React.FC = () => {
                         {/* Thêm các phiên bản khác nếu cần */}
                     </select>
                 </div>
-                <button type="submit" className="btn btn-primary">Tạo Key</button>
+                <button type="submit" className="btn btn-primary">Get License</button>
             </form>
 
             {error && <div className="alert alert-danger mt-4">{error}</div>}
