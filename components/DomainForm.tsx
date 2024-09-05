@@ -16,7 +16,7 @@ const DomainForm: React.FC = () => {
             const response = await axios.post('/api/generateKey', { domain, version });
             setKey(response.data.key);
         } catch (error) {
-            setError('Đã xảy ra lỗi khi tạo khóa.');
+            setError('Error ^^');
         }
     };
 
